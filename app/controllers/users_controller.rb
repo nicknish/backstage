@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   	user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
   	if user.save
   		redirect_to users_path
+    else
+      redirect_to new_path
   	end
   end
 

@@ -14,13 +14,13 @@ class SessionsController < ApplicationController
 			redirect_to users_path
 		else
 			# if wrong, then reloads to try logging in
-			redirect_to new_session_path
+			redirect_to login_path
 		end
 	end
 
 	def destroy
 		# Kill all of our cookies, log out
 		reset_session
-		redirect_to new_session_path
+		redirect_to login_path
 	end
 end

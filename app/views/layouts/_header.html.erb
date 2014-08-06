@@ -1,0 +1,9 @@
+<div class="pull-right">
+		<% if current_user %>
+			Welcome <%= current_user.name %>!
+			<%= link_to "Log out", session_path, method: :delete %>
+		<% else %>
+			<%= link_to "Sign up", new_path %>
+			<%= link_to "Log In", login_path if !@is_login %>
+		<% end %>
+</div>
