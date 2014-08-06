@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     # Exactly the same idea as this little number:
-    redirect_to customers_path
+    redirect_to users_path
   end
 
 end
