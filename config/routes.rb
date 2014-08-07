@@ -1,13 +1,28 @@
 Rails.application.routes.draw do
+
   # Set homepage to the user index
   root 'users#index'
+
   resources :users, only: [:create, :edit, :update, :destroy]
-  # Set User
+
+  # Edit page is on /users/id
   get 'users/:id' => 'users#edit'
+  # 
+  patch 'users/:id' => 'users#update'
+  # Sign up page is on /new
   get '/new' => 'users#new'
-  get '/login' => 'sessions#new'
+
 
   resource :session, only: [:create, :destroy]
+
+  # Login page is on /login
+  get '/login' => 'sessions#new'
+  # Login from root page
+  post 'users/' => 'sessions#create'
+
+
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

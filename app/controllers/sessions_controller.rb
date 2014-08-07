@@ -1,8 +1,4 @@
 class SessionsController < ApplicationController
-	def new
-		@user = User.new
-		@is_login = true
-	end
 
 	def create
 		u = User.where(email: params[:user][:email]).first
@@ -14,13 +10,13 @@ class SessionsController < ApplicationController
 			redirect_to root_path
 		else
 			# if wrong, then reloads to try logging in
-			redirect_to login_path
+			redirect_to root_path
 		end
 	end
 
 	def destroy
 		# Kill all of our cookies, log out
 		reset_session
-		redirect_to login_path
+		redirect_to root_path
 	end
 end
