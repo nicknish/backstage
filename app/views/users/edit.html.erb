@@ -1,0 +1,13 @@
+<%= link_to "Back to Users", root_path %>
+
+<h1>Edit</h1>
+
+<%= form_for @user, { url: session_path } do |f| %>
+	Change Name: <%= f.text_field :name, placeholder: "change name" %><br />
+	Change Email: <%= f.text_field :email, placeholder: "@" %><br />
+	New Password: <%= f.password_field :password, placeholder: "password" %><br />
+	Confirm Password: <%= f.password_field :password_confirmation, placeholder: "password" %><br />
+	<%= f.submit %>
+<% end %>
+
+<%= link_to "Sign up", new_path %>
