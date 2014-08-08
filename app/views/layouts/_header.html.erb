@@ -1,45 +1,8 @@
-<div class="pull-right">
+<h1 class="text-center">backstage</h1>
+
+<div class="pull-right welcome">
 		<% if current_user %>
 			Welcome <%= link_to current_user.name, user_path(current_user.id) %>!
 			<%= link_to "Log out", session_path, method: :delete %>
 		<% end %>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h3 class="modal-title" id="myModalLabel">Login</h3>
-      </div>
-      <div class="modal-body">
-
-        <form role="form">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <%= link_to "Sign up", new_path %>
-        </form>
-<%
-=begin %>
-<%= form_for @user do |f| %>
-Email: <%= f.text_field :email, placeholder: "@" %><br />
-Password: <%= f.password_field :password, placeholder: "password" %><br />
-<%= f.submit %>
-<% end %>
-<%= link_to "Sign up", new_path %>
-<% 
-=end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Login</button>
-      </div>
-    </div>
-  </div>
 </div>

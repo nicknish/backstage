@@ -1,11 +1,14 @@
 <h1>Edit</h1>
 
 <%= form_for @user do |f| %>
-	Change Name: <%= f.text_field :name, placeholder: "change name" %><br />
-	Change Email: <%= f.text_field :email, placeholder: "@" %><br />
-	New Password: <%= f.password_field :password, placeholder: "password" %><br />
-	Confirm Password: <%= f.password_field :password_confirmation, placeholder: "password" %><br />
-	<%= f.submit %>
+	<div class="form-group">
+		Change Name: <%= f.text_field :name, placeholder: "change name", :class => "form-control"  %><br />
+		Change Email: <%= f.text_field :email, placeholder: "@", :class => "form-control"  %><br />
+		New Password: <%= f.password_field :password, placeholder: "password", :class => "form-control"  %><br />
+		Confirm Password: <%= f.password_field :password_confirmation, placeholder: "password", :class => "form-control"  %><br />
+	</div>
+	<%= f.submit "Update User", {:class => 'btn btn-default'} %>
 <% end %>
 
 <%= link_to "Back to Users", root_path %>
+

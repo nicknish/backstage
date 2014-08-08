@@ -1,19 +1,54 @@
-<%# render 'loginmodal' %>
+<div class="user-page">
 
-<h1>Users#index</h1>
-<p>Users in the database</p>
+	<div class="container">
 
-<ul>
-	<% @users.each do |u| %>
-		<li>
-			<strong> <%= link_to "#{u.name}", user_path(u) %></strong>
-		</li>
-	<% end %>
-</ul>
+		<!-- Button trigger modal -->
+		<% unless current_user %>
+			<button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">
+				Login
+			</button>	
+		<% end %>
+		
+		<h1>Users#index</h1>
+		<p>Users in the database</p>
+		
+		<ul>
+			<% @users.each do |u| %>
+				<li>
+					<strong> <%= link_to "#{u.name}", user_path(u) %></strong>
+				</li>
+			<% end %>
+		</ul>
+	</div>
 
-<%= form_for @user do |f| %>
-Email: <%= f.text_field :email, placeholder: "@" %><br />
-Password: <%= f.password_field :password, placeholder: "password" %><br />
-<%= f.submit %>
-<% end %>
-<%= link_to "Sign up", new_path %>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="myModalLabel">Login</h3>
+      </div>
+      <div class="modal-body">
+				<%= form_for @user do |f| %>
+					<div class="form-group">
+						Email:
+						<div class="input-group">
+							<div class="input-group-addon">@</div>
+							<%= f.text_field :email, placeholder: "Enter email", :class => "form-control" %><br />
+						</div>
+						Password: <%= f.password_field :password, placeholder: "Password", :class => "form-control" %><br />
+					</div>
+				<%= link_to "Sign up", new_path %>
+      </div>
+      <div class="modal-footer">
+					<%= f.submit "Login", {:class => 'btn btn-primary'} %>
+					<% end %>
+      </div>
+    </div>
+  </div>
+</div>
+		
+
+</div>

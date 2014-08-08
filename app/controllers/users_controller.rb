@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    
     @user = User.find(params[:id])
   end
 
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params.require(:user).permit(:name, :email, :password, :password_confirmation))
       redirect_to edit_path
-    # else
+    else
       render 'edit'
     end
   end
@@ -40,6 +41,10 @@ class UsersController < ApplicationController
     redirect_to root_path
    
    private 
+
+   # How can I make it so the user can only access HIS/HER edit page?
+   # Right now, if you go to the right URL you can access anyone's info.
+
       def check_admin
         unless current_user && current_user.is_admin
         redirect_to events_path
