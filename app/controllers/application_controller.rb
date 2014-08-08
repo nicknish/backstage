@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-  	@current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-	 def authorize
-     redirect_to :back, alert: "Not authorized" if current_user == nil
-	 end
+  def authorize
+   redirect_to root_path, alert: "Not authorized" if current_user == nil
+  end
 
 end

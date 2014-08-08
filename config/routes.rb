@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     patch 'users/:id' => 'users#update'
     # Signup from the /new page
     post 'users/' => 'users#create'
-    get '/new' => 'users#new'
+    get '/new' => 'users#new', as: :new
 
   resource :session, only: [:create, :destroy]
     # Login from the root page

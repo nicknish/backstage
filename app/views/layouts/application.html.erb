@@ -31,12 +31,14 @@
 
 	<%= render 'layouts/header' %>
 
-	<% flash.each do |name, msg| %>
-		<%= content_tag :div, msg, id: "flash_#{name}" %>
-	<% end %>
-
-	<div class="container ng-controller="appCtrl">
-		<%= yield %>
+	<div class="content">
+		<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, id: "flash_#{name}" %>
+		<% end %>
+		
+		<div class="container ng-controller="appCtrl">
+			<%= yield %>
+		</div>
 	</div>
 
 </body>

@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params.require(:user).permit(:name, :email, :password, :password_confirmation))
-      redirect_to edit_path
+      redirect_to edit_path, notice: "Your changes were saved!"
     else
       render 'edit'
     end
@@ -51,8 +51,9 @@ class UsersController < ApplicationController
   # Delete the user
   def destroy
     User.find(params[:id]).destroy
-    # Exactly the same idea as this little number:
-    redirect_to root_path
+    session[:user_id] = nil
+    reset_session
+    redirect_to root_path, notice: "Sorry to see you go!"
   end
 
 end
