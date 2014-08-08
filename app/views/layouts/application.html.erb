@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="soundcloudApp">
 <head>
   <title>Backstage</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script src="http://connect.soundcloud.com/sdk.js"></script>
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
 	<script>
-		SC.initialize({
-		  client_id: 'f43e5fe0023f09c558e18747e7c4c708'
-		});
+	// initialize client with app credentials
+	SC.initialize({
+	  client_id: 'f43e5fe0023f09c558e18747e7c4c708',
+	  redirect_uri: 'https://soundcloud.com/connect'
+	});
 
-		var track_url = 'http://soundcloud.com/forss/flickermood';
-		SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
+	// initiate auth popup
+	// SC.connect(function() {
+	//   SC.get('/me', function(me) { 
+	//     alert('Hello, ' + me.username); 
+	//   });
+	// });
+
+	var track_url = 'http://soundcloud.com/forss/flickermood';
+	SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
 		  console.log('oEmbed response: ' + oEmbed);
-		});
+	});
 	</script>
   <%= csrf_meta_tags %>
 </head>
@@ -22,7 +31,11 @@
 
 	<%= render 'layouts/header' %>
 
-	<div class="container">
+	<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, id: "flash_#{name}" %>
+	<% end %>
+
+	<div class="container ng-controller="appCtrl">
 		<%= yield %>
 	</div>
 

@@ -15,3 +15,25 @@
 //= require turbolinks
 //= require 'bootstrap'
 //= require_tree .
+
+var soundcloudKey = 'f43e5fe0023f09c558e18747e7c4c708';
+
+angular.module('soundcloudApp', []).controller('aCtrl', ['$scope', '$http',
+    function($scope, $http) {
+        // $scope.user = {};
+        // $scope.getUser = function() {
+        //     var url = 'https://api.soundcloud.com/users/zedd.json?client_id=';
+        //     var endpoint = url + soundcloudKey;
+        //     return $http({
+        //         method: 'GET',
+        //         url: endpoint
+        //     });
+        // };
+
+        // $scope.getUser().then(function(members) {
+        //     $scope.team = members.data;
+        //     $scope.status = members.status;
+        // });
+
+    }
+]);

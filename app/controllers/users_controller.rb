@@ -1,31 +1,44 @@
 class UsersController < ApplicationController
+  before_filter :authorize, only: [:edit, :update]
+
+  # How can I make it so the user can only access HIS/HER edit page?
+  # Right now, if you go to the right URL you can access anyone's info.
+
+  # Create a session from the index page.
   def index
     @users = User.all
-    # Create a session from the index page.
     @user = User.new
     @is_login = true
   end
 
-  # Prepare to show the sign-up form
+  # Add a new user
   def new
   	@user = User.new
   	@is_signup = true
   end
-  # Actually build the user
+
+  # Save the user
   def create
   	user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
   	if user.save
-  		redirect_to root_path
+      # Login the user if they are successful at signing up
+      session[:user_id] = user.id.to_s
+  		redirect_to root_path, notice: "Thank you for signing up!"
     else
-      redirect_to new_path
+      redirect_to new_path, notice: "There was a problem with your signup. Sorry about that!"
   	end
   end
 
+  # Edit the user profile
   def edit
-    
-    @user = User.find(params[:id])
+    if current_user.id == User.find(params[:id]).id
+      @user = User.find(params[:id])
+    else
+      redirect_to root_path, notice: "Sorry you don't have access to that!"
+    end
   end
 
+  # Patch the user profile
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params.require(:user).permit(:name, :email, :password, :password_confirmation))
@@ -35,21 +48,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # Delete the user
   def destroy
     User.find(params[:id]).destroy
     # Exactly the same idea as this little number:
     redirect_to root_path
-   
-   private 
-
-   # How can I make it so the user can only access HIS/HER edit page?
-   # Right now, if you go to the right URL you can access anyone's info.
-
-      def check_admin
-        unless current_user && current_user.is_admin
-        redirect_to events_path
-        end
-      end
-
   end
+
 end
