@@ -3,19 +3,13 @@ Rails.application.routes.draw do
   # Set homepage to the user index
   root 'users#index'
 
-  resources :users, only: [:destroy]
+  resources :users, only: [:update, :create, :destroy]
     # Edit page is on /users/id
     get 'users/:id' => 'users#edit', as: :edit
-    # Update
-    patch 'users/:id' => 'users#update'
     # Signup from the /new page
-    post 'users/new' => 'users#create'
     get '/new' => 'users#new', as: :new
 
   resource :session, only: [:create, :destroy]
-    # Login from the root page
-    post 'users/' => 'sessions#create'
-    get 'users/' => 'sessions#new'
 
 
 

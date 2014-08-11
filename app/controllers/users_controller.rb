@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authorize, only: [:edit, :update]
+  before_action :header
 
   # How can I make it so the user can only access HIS/HER edit page?
   # Right now, if you go to the right URL you can access anyone's info.
@@ -56,9 +57,9 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: "Sorry to see you go!"
   end
 
-  # def header
-  #   @user_login = User.new
-  #   @is_login = true
-  # end
+  def header
+    @user_login = User.new
+    @is_login = true
+  end
 
 end
