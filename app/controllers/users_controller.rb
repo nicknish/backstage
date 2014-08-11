@@ -56,4 +56,9 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: "Sorry to see you go!"
   end
 
+  # def header
+  #   @user_login = User.new
+  #   @is_login = true
+  # end
+
 end
