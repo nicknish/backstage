@@ -8,8 +8,6 @@ class UsersController < ApplicationController
   # Create a session from the index page.
   def index
     @users = User.all
-    @user = User.new
-    @is_login = true
   end
 
   # Add a new user
