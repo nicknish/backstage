@@ -16,24 +16,29 @@
 //= require 'bootstrap'
 //= require_tree .
 
-var soundcloudKey = 'f43e5fe0023f09c558e18747e7c4c708';
 
-angular.module('soundcloudApp', []).controller('aCtrl', ['$scope', '$http',
+// We need to persist the results of the SC.get('/me') in the db
+// The redirect should point to where we want to funnel the data
+// 1. Create a rails controller 
+// 2. Create a method that persists will persist the data
+// 3. Create a route that points to that method and will act as our API to capture the incoming JSON
+// 4. Issue a GET ($http) request to send 
+
+
+
+angular.module('soundcloudApp', []).controller('appCtrl', ['$scope', '$http',
     function($scope, $http) {
-        // $scope.user = {};
-        // $scope.getUser = function() {
-        //     var url = 'https://api.soundcloud.com/users/zedd.json?client_id=';
-        //     var endpoint = url + soundcloudKey;
-        //     return $http({
-        //         method: 'GET',
-        //         url: endpoint
-        //     });
-        // };
-
-        // $scope.getUser().then(function(members) {
-        //     $scope.team = members.data;
-        //     $scope.status = members.status;
-        // });
-
+        
     }
 ]);
+
+
+// EXAMPLE
+// angular.module('angulartest', []).controller('aCtrl', ['$scope', '$http', function($scope, $http) {
+//   console.log('Angular loaded');
+
+//   $scope.is_anagram = function() {
+//     var data = $http.get('http://localhost:3000/api/' + $scope.teststring).success(function(data, status, headers, config) { $scope.data = data; });
+//   }
+
+// }]);
