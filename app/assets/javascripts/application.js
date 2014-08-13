@@ -28,7 +28,13 @@
 
 angular.module('soundcloudApp', []).controller('appCtrl', ['$scope', '$http',
     function($scope, $http) {
-        
+        console.log('Angular engines are fired up!');
+        $scope.sclogin = function() {
+            var data = $http.get('http://localhost:3000/api' + $scope.testString)
+                .success(function(data, status, headers, config) { 
+                    $scope.data = data; 
+                });
+        }
     }
 ]);
 
