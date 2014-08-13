@@ -30,11 +30,17 @@ angular.module('soundcloudApp', []).controller('appCtrl', ['$scope', '$http',
     function($scope, $http) {
         console.log('Angular engines are fired up!');
         $scope.sclogin = function() {
-            var data = $http.get('http://localhost:3000/api' + $scope.testString)
+            var data = $http.get('https://api.soundcloud.com/users/dukedumont/tracks.json?client_id=f43e5fe0023f09c558e18747e7c4c708')
                 .success(function(data, status, headers, config) { 
                     $scope.data = data; 
                 });
+            SC.connect(function() {
+              SC.get('/me', function(me) { 
+                alert('Hello, ' + me.username); 
+              });
+            });
         }
+
     }
 ]);
 
