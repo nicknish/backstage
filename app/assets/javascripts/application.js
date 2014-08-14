@@ -20,37 +20,35 @@
 // We need to persist the results of the SC.get('/me') in the db
 // The redirect should point to where we want to funnel the data
 // 1. Create a rails controller 
-// 2. Create a method that persists will persist the data
+// 2. Create a method that will persist the data
 // 3. Create a route that points to that method and will act as our API to capture the incoming JSON
 // 4. Issue a GET ($http) request to send 
 
+// initialize client with app credentials
+// SC.initialize({
+//   client_id: 'f43e5fe0023f09c558e18747e7c4c708',
+//   redirect_uri: 'http://localhost:3000'
+// });
 
+myapp = angular.module('soundcloudApp', ["ngResource"]);
 
-angular.module('soundcloudApp', []).controller('appCtrl', ['$scope', '$http',
-    function($scope, $http) {
+myapp.factory('Login', ['$resource', function($resource) {
+   return $resource('/api/:id', {id: "@id"}, { 'update': { method:'PUT' } });
+}]);
+
+myapp.controller('appCtrl', ['$scope', '$resource', 'Login',
+    function($scope, $resource, Login) {
+
         console.log('Angular engines are fired up!');
         $scope.sclogin = function() {
-            var data = $http.get('https://api.soundcloud.com/users/dukedumont/tracks.json?client_id=f43e5fe0023f09c558e18747e7c4c708')
-                .success(function(data, status, headers, config) { 
-                    $scope.data = data; 
-                });
             SC.connect(function() {
               SC.get('/me', function(me) { 
-                alert('Hello, ' + me.username); 
+                var userInfo = me.username;
+                console.log(userInfo);
+                console.log(Login.query(userInfo));
               });
             });
         }
 
     }
 ]);
-
-
-// EXAMPLE
-// angular.module('angulartest', []).controller('aCtrl', ['$scope', '$http', function($scope, $http) {
-//   console.log('Angular loaded');
-
-//   $scope.is_anagram = function() {
-//     var data = $http.get('http://localhost:3000/api/' + $scope.teststring).success(function(data, status, headers, config) { $scope.data = data; });
-//   }
-
-// }]);

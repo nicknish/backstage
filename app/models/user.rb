@@ -1,5 +1,4 @@
 class User
-	# before_save { self.email = email.downcase }
   include Mongoid::Document
   include ActiveModel::SecurePassword
   field :name, type: String

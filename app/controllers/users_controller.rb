@@ -60,9 +60,11 @@ class UsersController < ApplicationController
     @is_login = true
   end
 
+  respond_to :json
+
   def sclogin
-    s = params[:s]
-    render json: s
+    id = params[:id]
+    render json: id
   end
 
 end

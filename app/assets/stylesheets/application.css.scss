@@ -46,3 +46,9 @@
 }
 
 .content { margin-top: 60px; }
+
+@media (max-width: $screen-md-min) { 
+	.modal {
+		.btn-warning { width: 100%; }
+	}
+}

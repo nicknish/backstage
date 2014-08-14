@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
 			redirect_to root_path, notice: "Logged in!"
 		else
 			# if wrong, then reloads to try logging in
-			flash.now.alert = "Email or password is incorrect."
 			redirect_to root_path, notice: "Email or password is incorrect"
 		end
 	end
