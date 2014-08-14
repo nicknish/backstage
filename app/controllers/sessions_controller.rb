@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
 		if u && u.authenticate(params[:user][:password])
 			# sets a  cookie at the user that holds the logging in user ID
 			session[:user_id] = u.id.to_s
-			redirect_to root_path, notice: "Logged in!"
+			redirect_to users_path, notice: "Logged in!"
 		else
-			# if wrong, then reloads to try logging in
+			# if wrong, then reloads with an error message
 			flash.now.alert = "Email or password is incorrect."
 			redirect_to root_path, notice: "Email or password is incorrect"
 		end

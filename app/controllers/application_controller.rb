@@ -13,4 +13,14 @@ class ApplicationController < ActionController::Base
    redirect_to root_path, alert: "Not authorized" if current_user == nil
   end
 
+  def login
+    @user_login = User.new
+    @is_login = true
+  end
+
+  def new
+    @user_signup = User.new
+    @is_signup = true
+  end
+
 end

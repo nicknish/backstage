@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+
+      <%= link_to "backstage", root_path, :class => "navbar-brand" %>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="pull-right">
+      <ul class="nav navbar-nav navbar-right list-inline">
+
+        <% if current_user %>
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Welcome <%= current_user.name %>!
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><%= link_to "Settings", user_path(current_user.id) %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Logout", session_path, method: :delete %></li>
+            </ul>
+          </li>
+
+        <% else %>
+
+          <li><a href="#" data-toggle="modal" data-target="#signup_modal">Sign Up</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#myModal">Log In</a></li>
+
+        <% end %>
+
+      </ul>
+    </div><!-- /.right-nav -->
+  </div><!-- /.container-fluid -->
+</nav>
