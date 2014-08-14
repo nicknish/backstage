@@ -32,11 +32,9 @@ body {
 .modal-dialog {
 		width: 350px;
 		margin: 30px auto;
-		.modal-content {
-			border-radius: 2px;
-		}
-	}
-.modal {
+		.modal-content { border-radius: 2px; }
+}
+.modals {
  	color: #333;
  	.form-group { margin-bottom: 0; }
  	.input-group { margin-bottom: 8px; }
@@ -49,11 +47,12 @@ body {
 		font-size: 11.5px;
  	}
 }
-
-@media(max-width:767px) {
-	.nav li { display: inline-block; }
-	.navbar-header:before, .navbar-header:after {
-		content: none;
+.navbar {
+	@media(max-width:767px) {
+		.nav li { display: inline-block; }
+		.navbar-header:before, .navbar-header:after {
+			content: none;
+		}
 	}
 }
 
