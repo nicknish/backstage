@@ -14,7 +14,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <div class="nav navbar-nav navbar-right welcome">
+      <div class="nav navbar-nav navbar-right">
         <% if current_user %>
           
           <li class="dropdown">
@@ -37,8 +37,10 @@
 
         <% else %>
 
-          <a href="#" data-toggle="modal" data-target="#myModal">Login</a>
-          <%= link_to "Signup", new_path %>
+          <div class="signin-links">
+            <a href="#" data-toggle="modal" data-target="#myModal">Login</a>
+            <%= link_to "Signup", new_path %>
+          </div>
 
         <% end %>
     </div><!-- /.navbar-collapse -->
