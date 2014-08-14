@@ -7,14 +7,12 @@ class UsersController < ApplicationController
 
   # Create a session from the index page.
   def index
-    @users = User.all
+    @users = User.all.order("completed ASC")
   end
 
-  # Add a new user
-  def new
-  	@user = User.new
-  	@is_signup = true
-  end
+  # Moved this to the application_controller
+  # def new
+  # end
 
   # Save the user
   def create

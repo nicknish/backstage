@@ -17,7 +17,6 @@
   background-size: cover;
 }
 
-
 .intro-message {
     position: relative;
     padding-top: 20%;
@@ -37,8 +36,10 @@
 }
 
 @media(max-width:767px) {
-    .intro-message { padding-bottom: 15%; }
-    .intro-message > h1 { font-size: 3em; }
+    .intro-message { 
+      padding-bottom: 15%; 
+      h1 {font-size: 5em; }
+    }
 
     ul.intro-social-buttons > li {
         li {
