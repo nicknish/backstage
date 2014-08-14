@@ -1,0 +1,70 @@
+<div class="modals">
+	<!-- Login Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h3 class="modal-title" id="myModalLabel">Log In</h3>
+	      </div>
+	      <div class="modal-body">
+					<%= form_for @user_login, { url: session_path } do |f| %>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">@</div>
+								<%= f.text_field :email, placeholder: "Enter email", :class => "form-control" %><br />
+							</div>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+								<%= f.password_field :password, placeholder: "Password", :class => "form-control" %><br />
+							</div>
+						</div>
+	          Not a member yet? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#signup_modal">Sign Up</a>
+	      </div>
+	      <div class="modal-footer">
+						<%= f.submit "Login", {:class => 'btn btn-primary'} %>
+						<% end %>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- Signup Modal -->
+	<div class="modal fade" id="signup_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h3 class="modal-title" id="myModalLabel">Sign Up</h3>
+	      </div>
+	      <div class="modal-body">
+					<%= form_for @user_signup do |f| %>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+							<%= f.text_field :name, placeholder: "What's your name?", :class => "form-control" %>
+							</div>
+							<div class="input-group">
+								<div class="input-group-addon">@</div>
+								<%= f.text_field :email, placeholder: "Enter email", :class => "form-control" %><br />
+							</div>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+								<%= f.password_field :password, placeholder: "Password", :class => "form-control" %><br />
+							</div>
+							<div class="input-group">
+								<div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+								<%= f.password_field :password_confirmation, placeholder: "Confirm password", :class => "form-control" %><br />
+							</div>
+						</div>
+	          Already a member? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#myModal">Log In</a>
+				</div>
+	      <div class="modal-footer">
+						<%= f.submit "Sign Up", {:class => 'btn btn-primary'} %>
+					<% end %>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+</div>

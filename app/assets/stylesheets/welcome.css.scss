@@ -1,0 +1,52 @@
+/* Landing Page
+============================== */
+
+.intro-header {
+  min-height: 610px;
+  text-align: center;
+  color: #f8f8f8;
+  background: 
+    -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+     url('EDMcrowd.jpg') no-repeat center center;
+  background: 
+    -moz-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('EDMcrowd.jpg') no-repeat center center;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url('EDMcrowd.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+
+.intro-message {
+    position: relative;
+    padding-top: 20%;
+    padding-bottom: 15%;
+    h1 {
+      margin: 0;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+      font-size: 8em;
+    }
+    h3 { text-shadow: 2px 2px 3px rgba(0,0,0,0.6); }
+}
+
+.intro-divider {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+@media(max-width:767px) {
+    .intro-message { padding-bottom: 15%; }
+    .intro-message > h1 { font-size: 3em; }
+
+    ul.intro-social-buttons > li {
+        li {
+            display: block;
+            margin-bottom: 20px;
+            padding: 0;
+        }
+        li:last-child { margin-bottom: 0; }
+    }
+    .intro-divider { width: 100%; }
+}

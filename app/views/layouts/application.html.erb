@@ -26,15 +26,14 @@
 </head>
 <body ng-controller="appCtrl">
 
-	<%= render 'layouts/header' %>
-	<%= render 'layouts/login' %>
+	<%= render 'partials/nav' %>
+	<%= render 'partials/modals' %>
 
 	<div class="content">
-		<% flash.each do |name, msg| %>
-			<%= content_tag :div, msg, id: "flash_#{name}" %>
-		<% end %>
-		
-		<div class="container">
+<<<<<<< HEAD		
+=======
+		<div ng-controller="appCtrl">
+>>>>>>> 5d3dcca9fa70b96ae9033f1ed6b8373e9cbea6e8
 			<%= yield %>
 			<!-- <button ng-click="sclogin()" class="btn btn-primary">Login</button> -->
 		</div>

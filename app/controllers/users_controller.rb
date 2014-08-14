@@ -1,20 +1,19 @@
 class UsersController < ApplicationController
+  # If a user isn't logged in, then deny them access to user edit and update pages.
   before_filter :authorize, only: [:edit, :update]
-  before_action :header
-
-  # How can I make it so the user can only access HIS/HER edit page?
-  # Right now, if you go to the right URL you can access anyone's info.
+  # Allow the login and signing up on any page.
+  before_action :login, :new
 
   # Create a session from the index page.
   def index
     @users = User.all
   end
 
-  # Add a new user
-  def new
-  	@user = User.new
-  	@is_signup = true
-  end
+  # Moved this to the application_controller
+  # def new
+  # 	@user_signup = User.new
+  # 	@is_signup = true
+  # end
 
   # Save the user
   def create
@@ -55,16 +54,13 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: "Sorry to see you go!"
   end
 
-  def header
-    @user_login = User.new
-    @is_login = true
-  end
-
+<<<<<<< HEAD
   respond_to :json
 
   def sclogin
     id = params[:id]
     render json: id
   end
-
+=======
+>>>>>>> 5d3dcca9fa70b96ae9033f1ed6b8373e9cbea6e8
 end

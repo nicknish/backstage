@@ -7,9 +7,12 @@ class SessionsController < ApplicationController
 		if u && u.authenticate(params[:user][:password])
 			# sets a  cookie at the user that holds the logging in user ID
 			session[:user_id] = u.id.to_s
-			redirect_to root_path, notice: "Logged in!"
+			redirect_to users_path, notice: "Logged in!"
 		else
-			# if wrong, then reloads to try logging in
+<<<<<<< HEAD
+=======
+			# if wrong, then reloads with an error message
+>>>>>>> 5d3dcca9fa70b96ae9033f1ed6b8373e9cbea6e8
 			redirect_to root_path, notice: "Email or password is incorrect"
 		end
 	end

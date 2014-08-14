@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   # Set homepage to the user index
-  root 'users#index'
+  root 'welcome#new'
 
   resources :users, only: [:update, :create, :destroy]
+    get 'users' => 'users#index'
     # Edit page is on /users/id
     get 'users/:id' => 'users#edit', as: :edit
     # Signup from the /new page
