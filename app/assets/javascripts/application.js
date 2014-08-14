@@ -29,6 +29,7 @@ myapp.controller('appCtrl', ['$scope', '$resource', 'Login',
         $scope.sclogin = function() {
             SC.connect(function() {
               SC.get('/me', function(me) { 
+                alert("Hello " + me.username +"!");
                 var userInfo = me.username;
                 console.log(userInfo);
                 console.log(Login.query(userInfo));
