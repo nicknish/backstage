@@ -29,14 +29,10 @@
 </head>
 <body>
 
-	<%= render 'layouts/nav' %>
-	<%= render 'layouts/login_signup' %>
+	<%= render 'partials/nav' %>
+	<%= render 'partials/modals' %>
 
 	<div class="content">
-		<% flash.each do |name, msg| %>
-			<%= content_tag :div, msg, id: "flash_#{name}" %>
-		<% end %>
-		
 		<div ng-controller="appCtrl">
 			<%= yield %>
 		</div>
