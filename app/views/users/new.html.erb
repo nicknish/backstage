@@ -1,31 +1,26 @@
-<!-- Signup Page -->
-<div class="container">
+<%= link_to "Back to Users", root_path %>
 
-	<%= link_to "Back to Users", root_path %>
-	
-	<h1>Tell Us About Yourself</h1>
-	
-	<% if @user.errors.any? %>
-		<div class="error_messages">
-			<h2>Form is invalid<h2>
-			<ul>
-				<% @user.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-	
-	<%= form_for @user do |f| %>
-		<div class="form-group">
-			Name: <%= f.text_field :name, placeholder: "name", :class => "form-control" %><br />
-			Email: <%= f.text_field :email, placeholder: "@", :class => "form-control" %><br />
-			Password: <%= f.password_field :password, placeholder: "password", :class => "form-control" %><br />
-			Confirm Password: <%= f.password_field :password_confirmation, placeholder: "password", :class => "form-control" %><br />
-		</div>
-		<%= f.submit "Join!", {:class => 'btn btn-primary'} %>
-	<% end %>
-	
-	<%= link_to "Log In", root_path %>
-	
-</div>
+<h1>Tell Us About Yourself</h1>
+
+<% if @user.errors.any? %>
+	<div class="error_messages">
+		<h2>Form is invalid<h2>
+		<ul>
+			<% @user.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<%= form_for @user do |f| %>
+	<div class="form-group">
+		Name: <%= f.text_field :name, placeholder: "name", :class => "form-control" %><br />
+		Email: <%= f.text_field :email, placeholder: "@", :class => "form-control" %><br />
+		Password: <%= f.password_field :password, placeholder: "password", :class => "form-control" %><br />
+		Confirm Password: <%= f.password_field :password_confirmation, placeholder: "password", :class => "form-control" %><br />
+	</div>
+	<%= f.submit "Join!", {:class => 'btn btn-primary'} %>
+<% end %>
+
+<%= link_to "Log In", root_path %>

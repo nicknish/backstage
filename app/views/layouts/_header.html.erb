@@ -1,0 +1,49 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "backstage", root_path, :class => "navbar-brand" %>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+              Welcome <%= current_user.name %>!
+              <span class="caret"></span>
+
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <%= link_to "Settings", user_path(current_user.id) %>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Logout", session_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+
+        <% else %>
+
+          <div class="signin-links">
+            <a href="#" data-toggle="modal" data-target="#myModal">Login</a>
+            <%= link_to "Signup", new_path %>
+          </div>
+
+        <% end %>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
