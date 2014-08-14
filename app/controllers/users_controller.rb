@@ -52,4 +52,11 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: "Sorry to see you go!"
   end
 
+  respond_to :json
+
+   def sclogin
+    s = params[:s]
+    render json: s
+   end
+
 end

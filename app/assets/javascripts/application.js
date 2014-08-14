@@ -16,24 +16,25 @@
 //= require 'bootstrap'
 //= require_tree .
 
-var soundcloudKey = 'f43e5fe0023f09c558e18747e7c4c708';
+myapp = angular.module('soundcloudApp', ["ngResource"]);
 
-angular.module('soundcloudApp', []).controller('aCtrl', ['$scope', '$http',
-    function($scope, $http) {
-        // $scope.user = {};
-        // $scope.getUser = function() {
-        //     var url = 'https://api.soundcloud.com/users/zedd.json?client_id=';
-        //     var endpoint = url + soundcloudKey;
-        //     return $http({
-        //         method: 'GET',
-        //         url: endpoint
-        //     });
-        // };
+myapp.factory('Login', ['$resource', function($resource) {
+   return $resource('/api/:id', {id: "@id"}, { 'update': { method:'PUT' } });
+}]);
 
-        // $scope.getUser().then(function(members) {
-        //     $scope.team = members.data;
-        //     $scope.status = members.status;
-        // });
+myapp.controller('appCtrl', ['$scope', '$resource', 'Login',
+    function($scope, $resource, Login) {
+
+        console.log('Angular engines are fired up!');
+        $scope.sclogin = function() {
+            SC.connect(function() {
+              SC.get('/me', function(me) { 
+                var userInfo = me.username;
+                console.log(userInfo);
+                console.log(Login.query(userInfo));
+              });
+            });
+        }
 
     }
 ]);
