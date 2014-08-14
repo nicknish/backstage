@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resource :session, only: [:create, :destroy]
 
-  get '/api/:id' => 'users#sclogin'
+    get 'api/:s' => 'users#sclogin'
 
 
 

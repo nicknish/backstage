@@ -53,16 +53,11 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: "Sorry to see you go!"
   end
 
-  def header
-    @user_login = User.new
-    @is_login = true
-  end
-
   respond_to :json
 
-  def sclogin
-    id = params[:id]
-    render json: id
-  end
+   def sclogin
+    s = params[:s]
+    render json: s
+   end
 
 end

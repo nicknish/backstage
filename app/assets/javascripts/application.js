@@ -16,7 +16,6 @@
 //= require 'bootstrap'
 //= require_tree .
 
-
 // We need to persist the results of the SC.get('/me') in the db
 // The redirect should point to where we want to funnel the data
 // 1. Create a rails controller 
@@ -43,6 +42,7 @@ myapp.controller('appCtrl', ['$scope', '$resource', 'Login',
         $scope.sclogin = function() {
             SC.connect(function() {
               SC.get('/me', function(me) { 
+                alert("Hello " + me.username +"!");
                 var userInfo = me.username;
                 console.log(userInfo);
                 console.log(Login.query(userInfo));

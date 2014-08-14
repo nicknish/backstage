@@ -8,6 +8,11 @@
 	        <h3 class="modal-title" id="myModalLabel">Log In</h3>
 	      </div>
 	      <div class="modal-body">
+	      	<div class="form-group center-block">
+	      		<button ng-click="sclogin()" class="btn btn-warning">Login through Soundcloud</button>
+	      		<br />
+	      		<br />
+	      	</div>
 					<%= form_for @user_login, { url: session_path } do |f| %>
 						<div class="form-group">
 							<div class="input-group">
@@ -38,6 +43,11 @@
 	        <h3 class="modal-title" id="myModalLabel">Sign Up</h3>
 	      </div>
 	      <div class="modal-body">
+		      <div class="form-group center-block">
+		      		<button ng-click="sclogin()" class="btn btn-warning">Login through Soundcloud</button>
+		      		<br />
+		      		<br />
+	      	</div>
 					<%= form_for @user_signup do |f| %>
 						<div class="form-group">
 							<div class="input-group">
