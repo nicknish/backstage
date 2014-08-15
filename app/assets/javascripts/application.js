@@ -28,11 +28,11 @@ myapp.controller('appCtrl', ['$scope', '$resource', '$http', 'Login',
         console.log('Angular engines are fired up!');
         $scope.sclogin = function() {
             SC.connect(function() {
-              SC.get('/me', function(me) { 
-                // alert("Hello " + me.username +"!");
-                var userInfo = me;
-                console.log(me);
-                // console.log(Login.query(userInfo));
+              SC.get('/me', function(me) {
+                alert("Hello " + me.username +"!");
+                var userInfo = me.username;
+                console.log(userInfo);
+//                console.log(Login.query(userInfo));
                 console.log($http.get('http://localhost:3000/api/'+userInfo));
               });
             });
