@@ -9,7 +9,8 @@
 	      </div>
 	      <div class="modal-body">
 	      	<div class="form-group center-block">
-	      		<button ng-click="sclogin()" class="btn btn-warning">Login through Soundcloud</button>
+						<%= image_tag "soundcloud.svg", class: "soundcloud-img", id: "soundcloud-login" %>
+	      		<button ng-click="sclogin()" class="btn btn-warning"><span class="soundcloud-span">Login through Soundcloud</span></button>
 	      		<br />
 	      		<br />
 	      	</div>
@@ -39,12 +40,13 @@
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
+					<%= image_tag "soundcloud.svg", class: "soundcloud-img", id: "soundcloud-signup" %>
 	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 	        <h3 class="modal-title" id="myModalLabel">Sign Up</h3>
 	      </div>
 	      <div class="modal-body">
 		      <div class="form-group center-block">
-		      		<button ng-click="sclogin()" class="btn btn-warning">Login through Soundcloud</button>
+		      		<button ng-click="sclogin()" class="btn btn-warning"><span class="soundcloud-span">Sign Up through Soundcloud</span></button>
 		      		<br />
 		      		<br />
 	      	</div>

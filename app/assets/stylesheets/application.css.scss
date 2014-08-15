@@ -46,7 +46,26 @@ body {
  	.glyphicon-user { 
 		font-size: 11.5px;
  	}
- 	.btn-warning { width: 100%; }
+ 	.soundcloud-img {
+		width: 40px; 
+		position: absolute;  
+		z-index: 100; 
+ 	}
+ 	.soundcloud-span { 
+ 		font-weight: 700; 
+ 		padding-left: 20px; 
+ 		display: inline-block; 
+ 	}
+	#soundcloud-login { right: 279px; top: 22px; }	
+	#soundcloud-signup { left: 26px; top: 86px; }
+ 	.btn-warning { 
+ 		position: relative;
+ 		width: 100%; 
+ 		border-radius: 2px; 
+ 		height: 51px;
+ 		font-size: 15px;
+ 		letter-spacing: .5px;
+ 	}
 }
 .navbar {
 	@media(max-width:767px) {
