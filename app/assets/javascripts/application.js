@@ -22,17 +22,18 @@ myapp.factory('Login', ['$resource', function($resource) {
    return $resource('/api/:id', {id: "@id"}, { 'update': { method:'PUT' } });
 }]);
 
-myapp.controller('appCtrl', ['$scope', '$resource', 'Login',
-    function($scope, $resource, Login) {
+myapp.controller('appCtrl', ['$scope', '$resource', '$http', 'Login',
+    function($scope, $resource, $http, Login) {
 
         console.log('Angular engines are fired up!');
         $scope.sclogin = function() {
             SC.connect(function() {
-              SC.get('/me', function(me) { 
+              SC.get('/me', function(me) {
                 alert("Hello " + me.username +"!");
                 var userInfo = me.username;
                 console.log(userInfo);
-                console.log(Login.query(userInfo));
+//                console.log(Login.query(userInfo));
+                console.log($http.get('http://localhost:3000/api/'+userInfo));
               });
             });
         }
