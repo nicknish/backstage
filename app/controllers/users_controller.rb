@@ -55,8 +55,14 @@ class UsersController < ApplicationController
   respond_to :json
 
    def sclogin
-    s = params[:s]
-    render json: s
+    url = params[:s]
+    # render json: url
+    @user = User.new(params.require(:user).permit(:name))
+    if @user.save
+      respond_to do |format|
+        format.JSON { render :json => @user }
+      end
+    end
    end
 
 end

@@ -1,10 +1,12 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-
-      <%= link_to "backstage", root_path, :class => "navbar-brand" %>
-
+      <% if current_user %>
+        <%= link_to "backstage", users_path, :class => "navbar-brand" %>
+      <% else %>
+        <%= link_to "backstage", root_path, :class => "navbar-brand" %>
+      <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

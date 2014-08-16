@@ -10,7 +10,7 @@
 	      <div class="modal-body">
 	      	<div class="form-group center-block">
 						<%= image_tag "soundcloud.svg", class: "soundcloud-img", id: "soundcloud-login" %>
-	      		<button ng-click="sclogin()" class="btn btn-warning"><span class="soundcloud-span">Login through Soundcloud</span></button>
+	      		<button ng-click="sclogin()" class="btn btn-warning"><span class="soundcloud-span">Log in through Soundcloud</span></button>
 	      		<br />
 	      		<br />
 	      	</div>
@@ -46,7 +46,7 @@
 	      </div>
 	      <div class="modal-body">
 		      <div class="form-group center-block">
-		      		<button ng-click="sclogin()" class="btn btn-warning"><span class="soundcloud-span">Sign Up through Soundcloud</span></button>
+		      		<button ng-click="sclogin()" class="btn btn-warning"><span class="soundcloud-span">Sign up through Soundcloud</span></button>
 		      		<br />
 		      		<br />
 	      	</div>
@@ -54,6 +54,7 @@
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+							<%#= f.hidden_field %>
 							<%= f.text_field :name, placeholder: "What's your name?", :class => "form-control" %>
 							</div>
 							<div class="input-group">

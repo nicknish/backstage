@@ -1,15 +1,18 @@
-<%= link_to "Back to Users", root_path %>
-
-<h1>Edit</h1>
-
-<%= form_for @user do |f| %>
-	<div class="form-group">
-		Change Name: <%= f.text_field :name, placeholder: "change name", :class => "form-control"  %><br />
-		Change Email: <%= f.text_field :email, placeholder: "@", :class => "form-control"  %><br />
-		New Password: <%= f.password_field :password, placeholder: "password", :class => "form-control"  %><br />
-		Confirm Password: <%= f.password_field :password_confirmation, placeholder: "password", :class => "form-control"  %><br />
-	</div>
-	<%= f.submit "Update User", {:class => 'btn btn-default'} %>
-<% end %>
-
-<%= link_to "Delete this account", :user, method: :delete, data: { confirm: "Are you sure you want to delete your account?" } %>
+<!-- User Settings Page -->
+<div class="edit-container user-edit">
+	<%= link_to "Back to Users", root_path %>
+	
+	<h1>Edit</h1>
+	
+	<%= form_for @user do |f| %>
+		<div class="form-group">
+			Change Name: <%= f.text_field :name, placeholder: "change name", :class => "form-control"  %><br />
+			Change Email: <%= f.text_field :email, placeholder: "@", :class => "form-control"  %><br />
+			New Password: <%= f.password_field :password, placeholder: "password", :class => "form-control"  %><br />
+			Confirm Password: <%= f.password_field :password_confirmation, placeholder: "password", :class => "form-control"  %><br />
+		</div>
+		<%= f.submit "Update User", {:class => 'btn btn-default'} %>
+	<% end %>
+	
+	<%= link_to "Delete this account", :user, method: :delete, data: { confirm: "Are you sure you want to delete your account?" } %>
+</div>

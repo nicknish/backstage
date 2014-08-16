@@ -5,9 +5,7 @@
 
 $(document).ready(function(){
    $('#intro-header').mousemove(function(e){
-      var mousePosX = (e.pageX/$(window).width())*2.5;
-      $('#intro-header').css('background-position-x', mousePosX +'%');
-      var mousePosY = (e.pageY/$(window).height())*2.5;
+      var mousePosY = (e.pageY/$(window).height())*2.5 + 30;
       $('#intro-header').css('background-position-y', mousePosY +'%');
    }); 
 });

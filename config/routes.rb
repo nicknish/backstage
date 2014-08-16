@@ -12,10 +12,7 @@ Rails.application.routes.draw do
 
   resource :session, only: [:create, :destroy]
 
-    get 'api/:s' => 'users#sclogin'
-
-
-
+    get 'api/:s' => 'users#sclogin', defaults: {format: :json}
 
 
   # The priority is based upon order of creation: first created -> highest priority.
