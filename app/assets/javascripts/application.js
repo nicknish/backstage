@@ -29,11 +29,11 @@ myapp.controller('appCtrl', ['$scope', '$resource', '$http', 'Login',
         $scope.sclogin = function() {
             SC.connect(function() {
               SC.get('/me', function(me) {
-                alert("Hello " + me.username +"!");
-                var userInfo = me.username;
-                console.log(userInfo);
-//                console.log(Login.query(userInfo));
+                var userInfo = me.full_name;
+                $scope.username = userInfo;
+                // console.log(Login.query(userInfo));
                 console.log($http.get('http://localhost:3000/api/'+userInfo));
+
               });
             });
         }

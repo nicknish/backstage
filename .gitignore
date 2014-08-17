@@ -15,3 +15,5 @@
 /log/*.log
 /tmp
 /vendor
+
+backstage_api_credentials.conf

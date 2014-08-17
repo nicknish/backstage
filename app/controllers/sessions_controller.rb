@@ -1,16 +1,15 @@
 class SessionsController < ApplicationController
 
 	def create
-		u = User.where(email: params[:user][:email]).first
+		user = User.where(email: params[:user][:email]).first
 		# First make sure we actually found a user
 		# Then, see if their password matches
-		if u && u.authenticate(params[:user][:password])
-			# sets a  cookie at the user that holds the logging in user ID
-			session[:user_id] = u.id.to_s
+		if user && user.authenticate(params[:user][:password])
+			# sets a cookie on the browser that holds the logging in user ID
+			session[:user_id] = user.id.to_s
 			redirect_to users_path, notice: "Logged in!"
 		else
 			# if wrong, then reloads with an error message
-			flash.now.alert = "Email or password is incorrect."
 			redirect_to root_path, notice: "Email or password is incorrect"
 		end
 	end

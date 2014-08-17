@@ -1,3 +1,4 @@
+<!-- Modals -->
 <div class="modals">
 	<!-- Login Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -8,12 +9,12 @@
 	        <h3 class="modal-title" id="myModalLabel">Log In</h3>
 	      </div>
 	      <div class="modal-body">
-	      	<div class="form-group center-block">
-						<%= image_tag "soundcloud.svg", class: "soundcloud-img", id: "soundcloud-login" %>
+					<!-- <div class="form-group center-block">
+						<%#= image_tag "soundcloud.svg", class: "soundcloud-img", id: "soundcloud-login" %>
 	      		<button ng-click="sclogin()" class="btn btn-warning"><span class="soundcloud-span">Log in through Soundcloud</span></button>
 	      		<br />
 	      		<br />
-	      	</div>
+	      	</div> -->
 					<%= form_for @user_login, { url: session_path } do |f| %>
 						<div class="form-group">
 							<div class="input-group">
@@ -54,8 +55,7 @@
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-							<%#= f.hidden_field %>
-							<%= f.text_field :name, placeholder: "What's your name?", :class => "form-control" %>
+							<%= f.text_field :name, placeholder: "What's your name?", :class => "form-control", :'ng-model' => 'username' %>
 							</div>
 							<div class="input-group">
 								<div class="input-group-addon">@</div>

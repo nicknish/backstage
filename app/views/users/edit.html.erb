@@ -1,6 +1,6 @@
 <!-- User Settings Page -->
 <div class="edit-container user-edit">
-	<%= link_to "Back to Users", root_path %>
+	<%= link_to "Back to the Music", users_path %>
 	
 	<h1>Edit</h1>
 	
@@ -13,6 +13,6 @@
 		</div>
 		<%= f.submit "Update User", {:class => 'btn btn-default'} %>
 	<% end %>
-	
+	<br />
 	<%= link_to "Delete this account", :user, method: :delete, data: { confirm: "Are you sure you want to delete your account?" } %>
 </div>
