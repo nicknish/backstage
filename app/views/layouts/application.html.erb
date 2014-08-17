@@ -2,12 +2,13 @@
 <html ng-app="soundcloudApp">
 <head>
   <title>Backstage</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular-resource.js"></script>
-    <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
-    <script src="http://connect.soundcloud.com/sdk.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular-resource.js"></script>
+  <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+  <script src="http://connect.soundcloud.com/sdk.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<script>
 
@@ -16,13 +17,6 @@
       client_id: 'f43e5fe0023f09c558e18747e7c4c708',
       redirect_uri: 'http://localhost:3000'
     });
-
-	// initiate auth popup
-	// SC.connect(function() {
-	//   SC.get('/me', function(me) { 
-	//     alert('Hello, ' + me.username); 
-	//   });
-	// });
 
 	</script>
   <%= csrf_meta_tags %>

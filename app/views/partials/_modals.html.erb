@@ -9,11 +9,11 @@
 	        <h3 class="modal-title" id="myModalLabel">Log In</h3>
 	      </div>
 	      <div class="modal-body">
-					<!-- <div class="form-group center-block">
-						<%#= image_tag "soundcloud.svg", class: "soundcloud-img", id: "soundcloud-login" %>
-	      		<button ng-click="sclogin()" class="btn btn-warning"><span class="soundcloud-span">Log in through Soundcloud</span></button>
-	      		<br />
-	      		<br />
+		      <!-- <div class="form-group center-block">
+							<%#= image_tag "soundcloud.svg", class: "soundcloud-img" %>
+		      		<button ng-click="sclogin()" class="btn btn-soundcloud"><span id="soundcloud-span">Log In through Soundcloud</span></button>
+		      		<br />
+		      		<br />
 	      	</div> -->
 					<%= form_for @user_login, { url: session_path } do |f| %>
 						<div class="form-group">
@@ -29,8 +29,8 @@
 	          Not a member yet? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#signup_modal">Sign Up</a>
 	      </div>
 	      <div class="modal-footer">
-						<%= f.submit "Login", {:class => 'btn btn-primary'} %>
-						<% end %>
+					<%= f.submit "Login", {:class => 'btn btn-primary'} %>
+					<% end %>
 	      </div>
 	    </div>
 	  </div>
@@ -41,13 +41,13 @@
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
-					<%= image_tag "soundcloud.svg", class: "soundcloud-img", id: "soundcloud-signup" %>
 	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 	        <h3 class="modal-title" id="myModalLabel">Sign Up</h3>
 	      </div>
 	      <div class="modal-body">
 		      <div class="form-group center-block">
-		      		<button ng-click="sclogin()" class="btn btn-warning"><span class="soundcloud-span">Sign up through Soundcloud</span></button>
+							<%= image_tag "soundcloud.svg", class: "soundcloud-img" %>
+		      		<button ng-click="sclogin()" class="btn btn-soundcloud"><span id="soundcloud-span">Sign up through Soundcloud</span></button>
 		      		<br />
 		      		<br />
 	      	</div>
@@ -73,7 +73,7 @@
 	          Already a member? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#myModal">Log In</a>
 				</div>
 	      <div class="modal-footer">
-						<%= f.submit "Sign Up", {:class => 'btn btn-primary'} %>
+					<%= f.submit "Sign Up", {:class => 'btn btn-primary'} %>
 					<% end %>
 	      </div>
 	    </div>
